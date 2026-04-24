@@ -18,11 +18,17 @@ MENTER: NEELA SANTOSH
 ##Output
 
 Before Backup
-
+<img width="596" height="376" alt="Image" src="https://github.com/user-attachments/assets/86d6a318-f273-4c4b-a786-0d5d44457c95" />
 
 Table will be deleted shows failure
-
+<img width="639" height="508" alt="Image" src="https://github.com/user-attachments/assets/6f5e64dc-2402-42ae-966e-7cd7932c1c10" />
 
 Data comes Back
+<img width="578" height="691" alt="Image" src="https://github.com/user-attachments/assets/42375a6f-e6dc-4d23-b538-8014a700feae" />
+
+
+
+
+
 
 
