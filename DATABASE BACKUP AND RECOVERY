@@ -1,0 +1,86 @@
+-- =========================================
+-- STEP 1: CREATE DATABASE
+-- =========================================
+
+CREATE DATABASE company_db;   -- Create a new database
+USE company_db;               -- Select the database
+
+
+-- =========================================
+-- STEP 2: CREATE TABLE
+-- =========================================
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,  -- Unique ID for each employee
+    name VARCHAR(50) NOT NULL,              -- Employee name (cannot be empty)
+    department VARCHAR(50),                 -- Department name
+    salary INT                              -- Salary of employee
+);
+
+
+-- =========================================
+-- STEP 3: INSERT DATA
+-- =========================================
+
+INSERT INTO employees (name, department, salary) VALUES
+('Lakshmi', 'HR', 30000),
+('Ravi', 'IT', 40000),
+('Anjali', 'Finance', 35000),
+('Kiran', 'Marketing', 28000);
+
+-- Check data before backup
+SELECT * FROM employees;
+
+
+-- =========================================
+-- STEP 4: BACKUP DATABASE (RUN IN TERMINAL)
+-- =========================================
+
+-- This command creates a backup file of the database
+-- mysqldump -u root -p company_db > company_db_backup.sql
+
+
+-- =========================================
+-- STEP 5: SIMULATE FAILURE
+-- =========================================
+
+-- Delete database to simulate data loss
+DROP DATABASE company_db;
+
+
+-- =========================================
+-- STEP 6: RESTORE DATABASE
+-- =========================================
+
+-- Create empty database again
+CREATE DATABASE company_db;
+
+-- Restore data from backup file (run in terminal)
+-- mysql -u root -p company_db < company_db_backup.sql
+
+
+-- =========================================
+-- STEP 7: VERIFY RESTORED DATA
+-- =========================================
+
+USE company_db;
+
+-- Show all data
+SELECT * FROM employees;
+
+-- Count number of records
+SELECT COUNT(*) AS total_records FROM employees;
+
+-- Check for missing values
+SELECT * FROM employees WHERE name IS NULL;
+
+-- Check for duplicate records
+SELECT emp_id, COUNT(*) 
+FROM employees
+GROUP BY emp_id
+HAVING COUNT(*) > 1;
+
+
+-- =========================================
+-- END OF CODE
+-- =========================================
